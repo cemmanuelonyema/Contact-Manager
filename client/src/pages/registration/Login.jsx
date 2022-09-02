@@ -16,7 +16,7 @@ export const Login = () => {
   const handleSubmit = () => {};
 
   return (
-    <section className="page__container">
+    <section className="page_container">
       <div className="left"></div>
 
       <div className=" right form__container">
@@ -32,6 +32,7 @@ export const Login = () => {
               name="email"
               value={email}
               onChange={handleChange}
+              placeholder="address@mail.com"
               required
             />
           </div>
@@ -43,6 +44,7 @@ export const Login = () => {
               name="password"
               value={password}
               onChange={handleChange}
+              placeholder="your password"
               required
             />
           </div>

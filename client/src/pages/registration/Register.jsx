@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./register.css";
 
 export const Register = () => {
   //Local State
