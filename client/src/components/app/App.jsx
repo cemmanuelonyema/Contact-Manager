@@ -1,20 +1,25 @@
+//Dependencies
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+//files
+import Layout from "../../Layout";
+import "./App.css";
+
+//pages
+import { Landing } from "../../pages/landing/Landing";
 import { Login } from "../../pages/registration/Login";
 import { Register } from "../../pages/registration/Register";
-import { Contacts } from "../contacts/contactContainer/Contacts";
-import { ContactForm } from "../contacts/contactform/ContactForm";
-import { Modal } from "../reuse-comps/modal/Modal";
-import "./App.css";
 
 const App = () => {
   return (
-    <div>
-      <Register />
-      {/* <Login /> */}
-      {/* <Contacts /> */}
-      {/* <ContactForm /> */}
-      {/* <Modal /> */}
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="landing" element={<Landing />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+      </Route>
+    </Routes>
   );
 };
 
