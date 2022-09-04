@@ -17,14 +17,14 @@ export const Register = () => {
 
   const handleSubmit = () => {};
   return (
-    <section className="page_container">
+    <section className="page__container">
       <div className="left"></div>
 
-      <div className="right form_container">
+      <div className="right">
         <h1>
           Account <span className="">Register</span>{" "}
         </h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
           <div className="form_group">
             <label htmlFor="name">Name</label>
             <input
@@ -52,7 +52,7 @@ export const Register = () => {
               name="password"
               value={password}
               onChange={handleChange}
-              placeholder="your password"
+              placeholder="password"
             />
           </div>
           <div className="form_group">
@@ -62,7 +62,7 @@ export const Register = () => {
               name="password2"
               value={password2}
               onChange={handleChange}
-              placeholder="your password confirmation"
+              placeholder="password confirmation"
             />
           </div>
           <input

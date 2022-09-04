@@ -1,15 +1,21 @@
-.page_container {
+.page__container {
   display: flex;
-  max-width: 1100px;
-  width: 1100;
-  margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.left {
+  width: 40vw;
+}
+
+.right {
+  width: 60vw;
 }
 
 form {
   max-width: 500px;
   margin: auto;
-  padding: 0 3rem;
+  padding: 3rem;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
 }
 
 .left {
