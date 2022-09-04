@@ -1,14 +1,25 @@
+//Dependencies
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+//files
+import Layout from "../../Layout";
+import "./App.css";
+
+//pages
+import { Landing } from "../../pages/landing/Landing";
 import { Login } from "../../pages/registration/Login";
 import { Register } from "../../pages/registration/Register";
-import "./App.css";
 
 const App = () => {
   return (
-    <div>
-      <Register />
-      {/* <Login /> */}
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="landing" element={<Landing />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+      </Route>
+    </Routes>
   );
 };
 
