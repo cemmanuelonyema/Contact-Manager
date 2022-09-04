@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./contactForm.css";
+import "./contactForm.scss";
 
 export const ContactForm = () => {
   //Local State

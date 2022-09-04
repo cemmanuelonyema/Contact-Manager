@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./register.scss";
 
 export const Login = () => {
   // Local state
