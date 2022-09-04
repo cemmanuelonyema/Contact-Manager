@@ -1,0 +1,46 @@
+.card {
+  padding: 2rem;
+  border: #000 1px solid;
+  max-width: 350px;
+  position: relative;
+
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+.social-link {
+  display: block;
+  border: 2px solid black;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.btns {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.btns span {
+  display: block;
+  border: 2px solid black;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.edit {
+  background-color: blue;
+}
+
+.delete {
+  background-color: red;
+}
