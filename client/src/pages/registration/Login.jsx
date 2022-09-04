@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./register.scss";
 
 export const Login = () => {
   // Local state
@@ -16,10 +17,10 @@ export const Login = () => {
   const handleSubmit = () => {};
 
   return (
-    <section className="page_container">
+    <section className="page__container">
       <div className="left"></div>
 
-      <div className=" right form__container">
+      <div className=" right">
         <h1>
           Account <span className="">Login</span>{" "}
         </h1>

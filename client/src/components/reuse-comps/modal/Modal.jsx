@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
 import { ContactForm } from "../../contacts/contactform/ContactForm";
-import "./modal.css";
+import "./modal.scss";
 
 export const Modal = () => {
   const [open, setOpen] = useState(false);
