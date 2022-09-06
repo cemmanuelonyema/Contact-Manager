@@ -1,0 +1,68 @@
+/*****************************************************************/
+//Nav
+/*****************************************************************/
+nav {
+  max-width: 100rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  ul {
+    display: flex;
+  }
+}
+
+/*****************************************************************/
+//Hero
+/*****************************************************************/
+.hero {
+  background-color: blue;
+
+  &__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  p {
+    font: 2rem;
+  }
+}
+
+.features {
+  &__container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+  .box {
+    border: 1px solid black;
+    padding: 3rem;
+  }
+}
+
+.tech {
+  &__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.about {
+  &__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+  border: 2px solid black;
+  display: grid;
+
+  padding: 6rem 1rem;
+}

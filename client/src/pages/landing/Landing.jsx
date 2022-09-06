@@ -1,23 +1,23 @@
 import React, { Fragment } from "react";
+//sections
 import { About } from "../../components/landing/About";
-import { CaseStudy } from "../../components/landing/CaseStudy";
+import { Tech } from "../../components/landing/Tech";
 import { Features } from "../../components/landing/Features";
 import { Hero } from "../../components/landing/Hero";
 import { Footer } from "../../components/layout/footer/Footer";
-import { NavHeader } from "../../components/layout/nav/Nav";
+import { Nav } from "../../components/landing/Nav";
 
 export const Landing = () => {
   return (
     <Fragment>
-      Landing
       <header>
-        <NavHeader />
+        <Nav />
       </header>
       <main>
         <Hero />
         <About />
         <Features />
-        <CaseStudy />
+        <Tech />
         <Footer />
       </main>
     </Fragment>

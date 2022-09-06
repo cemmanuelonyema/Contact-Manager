@@ -1,16 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import "./nav.scss";
+
 export const NavHeader = () => {
   return (
     <nav>
       <div className="logo">
-        <img src="" alt="logo" className="logo__img" />
+        <a href="/">
+          <img src="" alt="logo" className="logo__img" />
+        </a>
       </div>
       <ul>
-        <li>
-          <NavLink to="/landing">Landing</NavLink>
-        </li>
         <li>
           <NavLink to="/login">Login</NavLink>
         </li>
