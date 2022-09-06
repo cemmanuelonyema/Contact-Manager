@@ -14,7 +14,9 @@
   gap: 1rem;
 }
 .social-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 2px solid black;
   width: 2rem;
   height: 2rem;
@@ -29,8 +31,7 @@
   right: 1rem;
 }
 
-.btns span {
-  display: block;
+.btns div {
   border: 2px solid black;
   width: 2rem;
   height: 2rem;
@@ -38,9 +39,17 @@
 }
 
 .edit {
-  background-color: blue;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  //   background-color: blue;
 }
 
 .delete {
-  background-color: red;
+  //   background-color: red;
+  display: inline-flex;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -10,6 +10,7 @@ import "./App.scss";
 import { Landing } from "../../pages/landing/Landing";
 import { Login } from "../../pages/registration/Login";
 import { Register } from "../../pages/registration/Register";
+import { ContactItem } from "../contacts/contactItem/ContactItem";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="landing" element={<Landing />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="contact" element={<ContactItem />} />
       </Route>
     </Routes>
   );
