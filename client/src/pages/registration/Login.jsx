@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import "./register.scss";
 
+const EMAIL_REGEX = /^[a-z](?=.*[ @])/;
+const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+
 export const Login = () => {
+  //refs
+  const userRef = useRef();
   // Local state
   const [user, setUser] = useState({
     email: "",
@@ -11,6 +16,25 @@ export const Login = () => {
   });
 
   const { email, password } = user;
+
+  //useEffect
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    const res = EMAIL_REGEX.test(email);
+  }, [email]);
+
+  useEffect(() => {
+    const res = PASSWORD_REGEX.test(password);
+  }, [password]);
+
+  //   useEffect(() => {
+  //     userRef.current.focus();
+  //     const isEmailValid = EMAIL_REGEX.test(email);
+  //     const isPasswordValid = PASSWORD_REGEX.test(password);
+  //   });
 
   // Methods
   const handleChange = (e) =>
@@ -33,6 +57,7 @@ export const Login = () => {
             <div className="form_group">
               <label htmlFor="email">Email</label>
               <input
+                ref={userRef}
                 type="email"
                 name="email"
                 value={email}
