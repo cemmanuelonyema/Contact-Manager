@@ -17,8 +17,7 @@ export const ContactItem = () => {
   return (
     <div className="card">
       <div className="card__avatar">
-        <img src="" alt="avatar" />
-        <FiImage />
+        <img src="/photo.jpg" alt="avatar" />
       </div>
       <div className="social-links">
         <a href="twitter">
@@ -38,20 +37,19 @@ export const ContactItem = () => {
         </a>
       </div>
       <div>
-        <div className="input_group">
-          <i>Name: </i> <FiUser />
+        <div className="input__group">
+          <FiUser />
           <span>Emmanuel Onyema</span>
         </div>
-        <div className="input_group">
-          <i>Email: </i>
+        <div className="input__group">
           <FiMail /> <span>cemmanuelonyema@gmail.com</span>
         </div>
-        <div className="input_group">
-          <i>Phone: </i> <FiPhoneCall />
+        <div className="input__group">
+          <FiPhoneCall />
           <span>07025053595</span>
         </div>
-        <div className="input_group">
-          <i>Label: </i> <FiUsers />
+        <div className="input__group">
+          <FiUsers />
           <span>Family</span>
         </div>
       </div>
