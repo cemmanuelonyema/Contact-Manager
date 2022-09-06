@@ -2,16 +2,22 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaCheck, FaInfoCircle, FaTimes } from "react-icons/fa";
 import "./register.scss";
+import { useEffect } from "react";
 
-const USER_REGEX = /^[a-zA-Z][a-zA-z0-9-_]{3,23}$/;
+const NAME_REGEX = /^[a-zA-Z][a-zA-z0-9-_]{3,23}$/;
+const EMAIL_REGEX = /^[a-z](?=.*[ @])/;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 export const Register = () => {
   //refs
-  const userRef = useRef();
+  const nameRef = useRef();
   const errRef = useRef();
 
-  //Local State
+  //Local Form State
+  //password states
+  const [validPassWd, setValidPassWd] = useState(false);
+  const [passWdFocus, setPassWdFocus] = useState(false);
+  //user states
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
   const [user, setUser] = useState({
@@ -21,6 +27,32 @@ export const Register = () => {
     password2: "",
   });
   const { name, email, password, password2 } = user;
+
+  //useEffects
+  useEffect(() => {
+    nameRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    const res = NAME_REGEX.test(name);
+  }, [name]);
+
+  useEffect(() => {
+    const res = EMAIL_REGEX.test(email);
+  }, [email]);
+
+  useEffect(() => {
+    const res = PASSWORD_REGEX.test(password);
+    const match = password === password2;
+  }, [password, password2]);
+
+  //   useEffect(() => {
+  //     nameRef.current.focus();
+  //     const isNameValid = NAME_REGEX.test(name);
+  //     const isEmailvalid = EMAIL_REGEX.test(email);
+  //     const isPasswordValid = PASSWORD_REGEX.test(password);
+  //     const passwordMatched = password === password2;
+  //   }, [name, email, password, password2]);
 
   //Methods
   const handleChange = (e) =>
@@ -47,6 +79,7 @@ export const Register = () => {
             <div className="form_group">
               <label htmlFor="name">Name</label>
               <input
+                ref={nameRef}
                 type="text"
                 name="name"
                 value={name}
@@ -99,3 +132,7 @@ export const Register = () => {
     </section>
   );
 };
+
+//register features
+
+// Accesible custom login and register validation to take the load off backed
