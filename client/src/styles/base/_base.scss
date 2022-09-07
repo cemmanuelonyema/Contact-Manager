@@ -7,7 +7,6 @@
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
   box-sizing: inherit;
 }
 
@@ -15,4 +14,13 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   scroll-behavior: smooth;
+}
+
+input {
+  outline: none;
+  border: 1px solid #e4e4e4;
+
+  &:focus {
+    border: 2px solid #d0d5dd;
+  }
 }

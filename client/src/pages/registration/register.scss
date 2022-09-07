@@ -1,44 +1,80 @@
+@import "../../styles/abstract/mixins";
+
 .page__container {
   display: flex;
   align-items: center;
   min-height: 100vh;
+
+  .left {
+    width: 40vw;
+    height: 100vh;
+    background-color: black;
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  .right {
+    width: 60vw;
+    padding: 0 6vw;
+
+    @include respond(phone) {
+      width: 100vw;
+    }
+  }
 }
 
-.left {
-  width: 40vw;
-  height: 100vh;
+.form__container {
+  max-width: 400px;
+  margin: auto;
+  padding: 3rem;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  h1 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
 }
 
-.right {
-  width: 60vw;
+form {
+  .form_group {
+    margin: 1.5rem 0;
+  }
+
+  .form_group {
+    input,
+    label,
+    span {
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.4rem;
+      font-size: 1.2rem;
+      //   border: 1px solid #ccc;
+    }
+
+    label {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  span {
+    margin-top: 1rem;
+  }
 }
 
-.left {
-  flex: 1;
-  background-color: black;
-  border: 3px solid blue;
-}
-
-.right {
-  flex: 1;
-}
-
-.form_group {
-  margin: 1.5rem 0;
-}
-
-.form_group input {
-  display: block;
-  width: 100%;
-  padding: 0.4rem;
-  font-size: 1.2rem;
-  border: 1px solid #ccc;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
 /* Forms */
 /* 
 
@@ -90,29 +126,3 @@ h2,
 h3 {
   text-align: center;
 } */
-
-.form__container {
-  max-width: 400px;
-  margin: auto;
-  padding: 3rem;
-  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
-
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-
-  h1 {
-    font-size: 2rem;
-  }
-  h3 {
-    font-size: 1.4rem;
-  }
-  p {
-    font-size: 1.2rem;
-  }
-
-  span {
-    display: block;
-    margin-top: 1rem;
-  }
-}
