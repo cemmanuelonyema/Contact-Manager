@@ -4,7 +4,7 @@ import { NavHeader } from "./components/layout/nav/Nav";
 
 const Layout = () => {
   return (
-    <Fragment className="App-container">
+    <Fragment>
       <Outlet />
     </Fragment>
   );

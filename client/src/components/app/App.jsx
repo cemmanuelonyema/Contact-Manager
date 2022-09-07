@@ -10,7 +10,7 @@ import "./App.scss";
 import { Landing } from "../../pages/landing/Landing";
 import { Login } from "../../pages/registration/Login";
 import { Register } from "../../pages/registration/Register";
-import { ContactItem } from "../contacts/contactItem/ContactItem";
+import { Contacts } from "../../pages/contacts/Contacts";
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
         <Route index element={<Landing />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="contact" element={<ContactItem />} />
+        <Route path="contact" element={<Contacts />} />
       </Route>
     </Routes>
   );

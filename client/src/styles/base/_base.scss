@@ -1,3 +1,5 @@
+@import "../abstract/mixins";
+
 //resets
 *,
 *::before,
@@ -15,4 +17,17 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  border: 2px solid black;
+  display: grid;
+  padding: 6rem 2rem;
+
+  @include respond(tab-port) {
+    padding: 6rem 6vw;
+    // font-size: 51%;
+  }
 }
