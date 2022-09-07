@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+/client/build
+
+/client/.env.local
+/client/.env.developmemt.local
+/client/.env.test.local
+/client/.env.production.local 
