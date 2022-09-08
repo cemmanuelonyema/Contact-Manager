@@ -1,10 +1,14 @@
 {
   "name": "contact",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/cemmanuelonyema/Contact-Manager",
   "author": "cemmanuelonyema <cemmanuelonyema@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "config": "^3.3.7",
