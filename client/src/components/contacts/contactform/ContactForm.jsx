@@ -80,34 +80,10 @@ export const ContactForm = () => {
   );
 };
 
-// const ContactForm = () => {
-//   const [contact, setContact] = useState({
-//     name: "",
-//     email: "",
-//     phone: "",
-//     type: "personal",
-//   });
-
-//   const { name, email, phone, type } = contact;
-
-//   const clearAll = () => {
-//     clearCurrent();
-//   };
-
-//   const handleChange = (e) =>
-//     setContact({
-//       ...contact,
-//       [e.target.name]: e.target.value,
-//     });
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     if (!current) {
-//       addContact(contact);
-//     } else {
-//       updateContact(contact);
-//     }
-//     setContact({ name: "", email: "", phone: "", type: "personal" });
-//   };
-// };
+export const SearchForm = () => {
+  return (
+    <form>
+      <input type="text" placeholder="Search Contacts" />
+    </form>
+  );
+};

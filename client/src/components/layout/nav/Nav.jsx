@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { SearchForm } from "../../contacts/contactform/ContactForm";
 
 import "./nav.scss";
 
@@ -23,6 +24,16 @@ export const NavHeader = () => {
   );
 };
 
-export const NavSide = () => {
-  return <nav>NavSide</nav>;
+export const NavBar = () => {
+  return (
+    <nav>
+      <div className="logo">
+        <img src="" alt="logo" />
+      </div>
+      <SearchForm />
+      <ul>
+        <li>Log out</li>
+      </ul>
+    </nav>
+  );
 };
