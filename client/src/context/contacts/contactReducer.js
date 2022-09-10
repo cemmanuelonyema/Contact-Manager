@@ -1,5 +1,5 @@
 import React from "react";
-import { DELETE_CONTACT } from "../actiontypes";
+import { DELETE_CONTACT, FILTER_CONTACTS } from "../actiontypes";
 
 export const INITIAL_STATE = {
   contacts: [
@@ -47,6 +47,8 @@ export const INITIAL_STATE = {
     },
   ],
   current: null,
+  filtered: null,
+  //   contacts: null,
 };
 
 export const contactReducer = (state = INITIAL_STATE, action) => {
@@ -57,6 +59,21 @@ export const contactReducer = (state = INITIAL_STATE, action) => {
         contacts: state.contacts.filter(
           (contact) => contact.id !== action.payload
         ),
+        loading: false,
+      };
+
+    case FILTER_CONTACTS:
+      return {
+        ...state,
+        filtered: state.contacts.filter((contact) => {
+          const regex = new RegExp(`${action.payload}`, "gi");
+          console.log("payload:", action.payload);
+          const name = contact.name.match(regex);
+          const email = contact.email.match(regex);
+          const phone = contact.phone.match(regex);
+          console.log("name:", name, "email:", email);
+          return name || email || phone;
+        }),
         loading: false,
       };
 

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ContactContext } from "../../../context/contacts/ContactProvider";
 import "./contactForm.scss";
 
 export const ContactForm = () => {
@@ -90,7 +91,12 @@ export const SearchForm = () => {
 
 export const SearchFormMobile = () => {
   const [searchValue, setSearchValue] = useState("");
-  const handleSearch = () => {};
+  const { filterContacts, filtered } = useContext(ContactContext);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    filterContacts(searchValue);
+  };
+
   return (
     <form className="search--form-mobile" onSubmit={handleSearch}>
       <input
