@@ -18,6 +18,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-size: 1.6rem;
+}
+
 .container {
   max-width: 100rem;
   margin: 0 auto;
@@ -38,4 +42,12 @@ input {
   &:focus {
     border: 2px solid #d0d5dd;
   }
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
