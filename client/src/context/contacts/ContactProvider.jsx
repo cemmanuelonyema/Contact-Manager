@@ -1,7 +1,12 @@
 import React, { useReducer, createContext } from "react";
 
 //types
-import { DELETE_CONTACT, FILTER_CONTACTS } from "../actiontypes";
+import {
+  CLEAR_CONTACTS,
+  CLEAR_FILTER,
+  DELETE_CONTACT,
+  FILTER_CONTACTS,
+} from "../actiontypes";
 
 import { contactReducer, INITIAL_STATE } from "./contactReducer";
 
@@ -19,12 +24,25 @@ export const ContactProvider = ({ children }) => {
   const deleteContact = (id) => {
     dispatch({ type: DELETE_CONTACT, payload: id });
   };
-  //filter Contact
+
+  //FILTER Contact
   const filterContacts = (id) => {
     dispatch({ type: FILTER_CONTACTS, payload: id });
   };
 
-  const value = { contacts, current, filtered, deleteContact, filterContacts };
+  //CLEAR filter
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
+  };
+
+  const value = {
+    contacts,
+    current,
+    filtered,
+    deleteContact,
+    filterContacts,
+    clearFilter,
+  };
 
   return (
     <ContactContext.Provider value={value}>{children}</ContactContext.Provider>

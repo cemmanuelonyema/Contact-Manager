@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { FaTimes } from "react-icons/fa";
 import { ContactContext } from "../../../context/contacts/ContactProvider";
 import "./contactForm.scss";
 
@@ -91,23 +92,25 @@ export const SearchForm = () => {
 
 export const SearchFormMobile = () => {
   const [searchValue, setSearchValue] = useState("");
-  const { filterContacts, filtered } = useContext(ContactContext);
-  const handleSearch = (e) => {
-    e.preventDefault();
+  const { filterContacts, clearFilter } = useContext(ContactContext);
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+    //   console.log(searchValue);
     filterContacts(searchValue);
   };
-
+  const handleClear = () => {
+    setSearchValue("");
+    clearFilter();
+  };
   return (
-    <form className="search--form-mobile" onSubmit={handleSearch}>
+    <form className="search--form-mobile" onSubmit={(e) => e.preventDefault()}>
       <input
         type="text"
         placeholder="Search Contacts"
         value={searchValue}
-        onChange={(e) => {
-          setSearchValue(e.target.value);
-          console.log(searchValue);
-        }}
+        onChange={handleChange}
       />
+      {searchValue !== "" ? <FaTimes onClick={handleClear} /> : ""}
     </form>
   );
 };

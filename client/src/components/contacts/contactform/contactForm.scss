@@ -25,15 +25,21 @@ form {
 
 .search--form-mobile {
   width: 100%;
-
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  display: flex;
+  gap: 1rem;
+  border: 1px solid black;
   @include respond(minPhone) {
     display: none;
   }
 
   input {
-    padding: 1.5rem;
-    font-size: 1.6rem;
-    border-radius: 5px;
     width: 100%;
+    border: none;
+    &:focus {
+      border: none;
+    }
   }
 }

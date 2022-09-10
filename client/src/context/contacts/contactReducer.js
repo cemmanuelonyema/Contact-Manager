@@ -1,5 +1,5 @@
 import React from "react";
-import { DELETE_CONTACT, FILTER_CONTACTS } from "../actiontypes";
+import { CLEAR_FILTER, DELETE_CONTACT, FILTER_CONTACTS } from "../actiontypes";
 
 export const INITIAL_STATE = {
   contacts: [
@@ -74,6 +74,12 @@ export const contactReducer = (state = INITIAL_STATE, action) => {
           console.log("name:", name, "email:", email);
           return name || email || phone;
         }),
+        loading: false,
+      };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null,
         loading: false,
       };
 
