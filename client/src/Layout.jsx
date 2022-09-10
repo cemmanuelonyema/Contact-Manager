@@ -5,7 +5,7 @@ import { NavBar, NavHeader } from "./components/layout/nav/Nav";
 const Layout = () => {
   return (
     <Fragment>
-      <NavBar />
+      {/* <NavBar /> */}
       <Outlet />
     </Fragment>
   );

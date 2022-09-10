@@ -78,14 +78,14 @@ export const Register = () => {
 
             <form onSubmit={handleSubmit} className="form">
               <div className="form_group">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">First Name</label>
                 <input
                   ref={nameRef}
                   type="text"
                   name="name"
                   value={name}
                   onChange={handleChange}
-                  placeholder="first name"
+                  placeholder="your first name"
                 />
               </div>
               <div className="form_group">
@@ -95,7 +95,7 @@ export const Register = () => {
                   name="email"
                   value={email}
                   onChange={handleChange}
-                  placeholder="address@mail.com"
+                  placeholder="youraddress@mail.com"
                 />
               </div>
               <div className="form_group">
@@ -105,7 +105,7 @@ export const Register = () => {
                   name="password"
                   value={password}
                   onChange={handleChange}
-                  placeholder="password"
+                  placeholder="your password"
                 />
               </div>
               <div className="form_group">
@@ -115,7 +115,7 @@ export const Register = () => {
                   name="password2"
                   value={password2}
                   onChange={handleChange}
-                  placeholder="password confirmation"
+                  placeholder="your password confirmation"
                 />
               </div>
               <input

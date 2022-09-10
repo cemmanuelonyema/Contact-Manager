@@ -89,9 +89,19 @@ export const SearchForm = () => {
 };
 
 export const SearchFormMobile = () => {
+  const [searchValue, setSearchValue] = useState("");
+  const handleSearch = () => {};
   return (
-    <form className="search--form-mobile">
-      <input type="text" placeholder="Search Contacts" />
+    <form className="search--form-mobile" onSubmit={handleSearch}>
+      <input
+        type="text"
+        placeholder="Search Contacts"
+        value={searchValue}
+        onChange={(e) => {
+          setSearchValue(e.target.value);
+          console.log(searchValue);
+        }}
+      />
     </form>
   );
 };
