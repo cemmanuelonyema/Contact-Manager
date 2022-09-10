@@ -1,3 +1,5 @@
+@import "../../../styles/abstract/mixins";
+
 form {
   position: relative;
 }
@@ -10,4 +12,28 @@ form {
   height: 2rem;
   border: 1px solid black;
   border-radius: 50%;
+}
+
+.search-form {
+  @include respond(phone) {
+    display: none;
+  }
+  //   @include respond(phone) {
+  //     display: none;
+  //   }
+}
+
+.search--form-mobile {
+  width: 100%;
+
+  @include respond(minPhone) {
+    display: none;
+  }
+
+  input {
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    width: 100%;
+  }
 }

@@ -1,9 +1,30 @@
+@import "../../styles/abstract/mixins";
+
 .contacts {
-  margin: 4rem 0;
+  margin: 5rem 0;
+
+  //   @include respond(phone) {
+  //     margin-top: 10rem;
+  //   }
 
   &__container {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 3rem;
     align-items: center;
+  }
+
+  .page__container {
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+    padding: 6rem 2rem;
+
+    max-width: 100rem;
+    margin: 0 auto;
+
+    @include respond(phone) {
+      padding: 6rem 4vw;
+    }
   }
 }

@@ -33,6 +33,12 @@ $breakpoint argument
       @content;
     }
   }
+  @if $breakpoint== minPhone {
+    @media (min-width: 37.5em) {
+      //600px
+      @content;
+    }
+  }
   @if $breakpoint== tab-port {
     @media (max-width: 56.25em) {
       //900px

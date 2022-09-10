@@ -1,11 +1,153 @@
-nav {
-  max-width: 100rem;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@import "../../../styles/abstract/mixins";
 
-  ul {
+.nav {
+  background-color: var(--white);
+  border: 1px solid black;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 4rem;
+  //   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+  //     0 2px 6px 2px rgba(60, 64, 67, 0.15);
+
+  &__container {
+    border: 1px solid black;
+    width: 100rem;
+
+    z-index: 200;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+
+    @include respond(phone) {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 70%;
+      height: 100%;
+      background-color: var(--black);
+      color: var(--white);
+      position: fixed;
+      top: 0;
+      right: -100%;
+      //   border: 5px solid black;
+      padding: 0 2rem;
+      transition: all ease-in-out 0.5s;
+    }
+  }
+
+  &__menu.open {
+    @include respond(phone) {
+      right: 0;
+    }
+  }
+
+  &__item {
+    &:hover,
+    &:active {
+      .nav__link {
+        border-bottom: 1px solid white;
+      }
+    }
+    @include respond(phone) {
+      width: 100%;
+      border-bottom: 0.5px solid var(--black);
+      border-bottom: 0.5px solid rgb(131, 131, 131);
+
+      &:last-of-type {
+        margin-bottom: 6rem;
+      }
+      &:first-child {
+        margin-top: 15rem;
+      }
+    }
+  }
+
+  &__link:link,
+  &__link:visited {
+    margin: 0 2rem;
+    padding: 5px 0;
+
+    color: var(--black);
+    border-bottom: 1px solid transparent;
+    transform-origin: left;
+    transition: all ease-in-out 0.5s;
+
+    @include respond(phone) {
+      font-size: 1.8rem;
+      margin: 0;
+      display: block;
+      padding: 2rem 0;
+    }
+  }
+}
+
+/***************MENU ICON AND BARS  + ACTIVE STATE***************************************/
+
+//Normal state on display
+.menuIcon {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  cursor: pointer;
+
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  z-index: 250;
+
+  @include respond(phone) {
+    display: flex;
+  }
+
+  &__bar {
+    background-color: var(--black);
+    display: inline-block;
+    height: 3px;
+    width: 3rem;
+    border-radius: 4px;
+    transition: all ease-in-out 0.4s;
+
+    &-a {
+      width: 3.5rem;
+    }
+    &-b {
+      width: 3.5rem;
+    }
+    &-c {
+      width: 3.5rem;
+    }
+  }
+}
+
+// Active state on open
+
+.menuIcon.open {
+  background-color: rgb(25, 25, 25);
+  transition: all ease-in-out 0.4s;
+
+  .menuIcon__bar {
+    transition: all ease-in-out 0.4s;
+
+    &-a {
+      transform: translateY(8px) rotate(45deg);
+    }
+    &-b {
+      transform: translateX(-2.5rem);
+      background-color: transparent;
+    }
+    &-c {
+      transform: translateY(-12px) rotate(-45deg);
+    }
   }
 }

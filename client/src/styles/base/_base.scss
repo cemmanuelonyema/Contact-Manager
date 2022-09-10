@@ -18,9 +18,8 @@ html {
   scroll-behavior: smooth;
 }
 
-
 .container {
-  max-width: 120rem;
+  max-width: 100rem;
   margin: 0 auto;
   border: 2px solid black;
   display: grid;
@@ -29,9 +28,9 @@ html {
   @include respond(tab-port) {
     padding: 6rem 6vw;
     // font-size: 51%;
-    }
   }
-  
+}
+
 input {
   outline: none;
   border: 1px solid #e4e4e4;

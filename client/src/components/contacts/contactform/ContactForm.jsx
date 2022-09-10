@@ -82,7 +82,15 @@ export const ContactForm = () => {
 
 export const SearchForm = () => {
   return (
-    <form>
+    <form className="search-form">
+      <input type="text" placeholder="Search Contacts" />
+    </form>
+  );
+};
+
+export const SearchFormMobile = () => {
+  return (
+    <form className="search--form-mobile">
       <input type="text" placeholder="Search Contacts" />
     </form>
   );
