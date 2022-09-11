@@ -20,7 +20,10 @@ import "./contactItem.scss";
  */
 
 export const ContactItem = ({ contact }) => {
-  const { deleteContact } = useContext(ContactContext);
+  const handleEdit = () => {
+    toggleModal();
+  };
+  const { deleteContact, toggleModal } = useContext(ContactContext);
   const {
     id,
     name,
@@ -72,7 +75,7 @@ export const ContactItem = ({ contact }) => {
         </div>
       </div>
       <div className="btns">
-        <div className="edit">
+        <div className="edit" onClick={handleEdit}>
           <FiEdit />
         </div>
         <div className="delete" onClick={() => deleteContact(id)}>

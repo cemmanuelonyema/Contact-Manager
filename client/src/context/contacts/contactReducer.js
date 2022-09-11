@@ -1,5 +1,11 @@
 import React from "react";
-import { CLEAR_FILTER, DELETE_CONTACT, FILTER_CONTACTS } from "../actiontypes";
+import {
+  ADD_CONTACT,
+  CLEAR_FILTER,
+  DELETE_CONTACT,
+  FILTER_CONTACTS,
+  TOGGLE_MODAL,
+} from "../actiontypes";
 
 export const INITIAL_STATE = {
   contacts: [
@@ -48,11 +54,18 @@ export const INITIAL_STATE = {
   ],
   current: null,
   filtered: null,
+  modalOpen: false,
   //   contacts: null,
 };
 
 export const contactReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case ADD_CONTACT:
+      return {
+        ...state,
+        contacts: [action.payload, ...state.contacts],
+        loading: false,
+      };
     case DELETE_CONTACT:
       return {
         ...state,
@@ -81,6 +94,11 @@ export const contactReducer = (state = INITIAL_STATE, action) => {
         ...state,
         filtered: null,
         loading: false,
+      };
+    case TOGGLE_MODAL:
+      return {
+        ...state,
+        modalOpen: !state.modalOpen,
       };
 
     default:

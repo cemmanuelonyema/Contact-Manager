@@ -63,7 +63,11 @@
         width: 100%;
         padding: 1.5rem;
         font-size: 1.6rem;
-        background-color: rgb(239, 239, 239);
+
+        &:focus {
+          border: none;
+          box-shadow: 0;
+        }
       }
 
       label {

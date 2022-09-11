@@ -49,11 +49,12 @@ export const Login = () => {
 
         <div className=" right">
           <div className="form__container">
-            <h1>Login</h1>
-            <h3>Manage all your contacts efficiently</h3>
-            <p>
+            <h1>Welcome back</h1>
+
+            <h3>
               Let's get you back quickly so you can start managing your contacts
-            </p>
+              efficiently
+            </h3>
             <form onSubmit={handleSubmit} className="form">
               <div className="form_group">
                 <label htmlFor="email">Email</label>

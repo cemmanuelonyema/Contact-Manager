@@ -1,83 +1,127 @@
 import React, { useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
+
 import { ContactContext } from "../../../context/contacts/ContactProvider";
 import "./contactForm.scss";
 
 export const ContactForm = () => {
+  const { addContact } = useContext(ContactContext);
   //Local State
   const [contact, setContact] = useState({
     name: "",
     email: "",
     phone: "",
-    type: "",
+    contact_label: "",
     linkedIn: "",
     instagram: "",
     twitter: "",
   });
 
-  const { name, email, phone, type, linkedIn, instagram, twitter } = contact;
+  const { name, email, phone, contact_label, linkedIn, instagram, twitter } =
+    contact;
 
   //methods
-  const handleChange = () => {};
-  const handleSubmit = () => {};
+  const handleChange = (e) =>
+    setContact({
+      ...contact,
+      [e.target.name]: e.target.value,
+    });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(contact);
+
+    addContact(contact);
+
+    setContact({
+      name: "",
+      email: "",
+      phone: "",
+      contact_label: "",
+      linkedIn: "",
+      instagram: "",
+      twitter: "",
+    });
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="contact-form">
       <h2 className="">Add Contact</h2>
-      <input
-        type="text"
-        placeholder="Name"
-        name="name"
-        value={name}
-        onChange={handleChange}
-      />
 
-      <input
-        type="email"
-        placeholder="Email"
-        name="email"
-        value={email}
-        onChange={handleChange}
-      />
+      <div className="form__group">
+        <label>Name</label>
+        <input
+          type="text"
+          placeholder="Name"
+          name="name"
+          value={name}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form__group">
+        <label>Email</label>
 
-      <input
-        type="text"
-        placeholder="Phone"
-        name="phone"
-        value={phone}
-        onChange={handleChange}
-      />
+        <input
+          type="email"
+          placeholder="Email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+        />
+      </div>
 
-      <input
-        type="link"
-        placeholder="linkedIn"
-        name="linkedIn"
-        value={linkedIn}
-        onChange={handleChange}
-      />
+      <div className="form__group">
+        <label>Phone number</label>
 
-      <input
-        type="link"
-        placeholder="instagram"
-        name="instagram"
-        value={instagram}
-        onChange={handleChange}
-      />
+        <input
+          type="text"
+          placeholder="Phone"
+          name="phone"
+          value={phone}
+          onChange={handleChange}
+        />
+      </div>
 
-      <input
-        type="link"
-        placeholder="twitter"
-        name="twitter"
-        value={twitter}
-        onChange={handleChange}
-      />
+      <div className="form__group">
+        <label>LinkedIn</label>
+        <input
+          type="link"
+          placeholder="linkedIn"
+          name="linkedIn"
+          value={linkedIn}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="form__group">
+        <label>Instagram</label>
+
+        <input
+          type="link"
+          placeholder="instagram"
+          name="instagram"
+          value={instagram}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="form__group">
+        <label>Twitter</label>
+        <input
+          type="link"
+          placeholder="twitter"
+          name="twitter"
+          value={twitter}
+          onChange={handleChange}
+        />
+      </div>
 
       <input
         type="submit"
         value={"Add Contact"}
         className="btn btn-primary btn-block"
       />
-      <div className="clear">clear</div>
+      {/* <div className="clear">clear</div> */}
     </form>
   );
 };

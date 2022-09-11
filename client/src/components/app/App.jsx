@@ -11,6 +11,7 @@ import { Landing } from "../../pages/landing/Landing";
 import { Login } from "../../pages/registration/Login";
 import { Register } from "../../pages/registration/Register";
 import { Contacts } from "../../pages/contacts/Contacts";
+import { NotFound } from "../../pages/notFound/NotFound";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="contact" element={<Contacts />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

@@ -4,6 +4,18 @@ form {
   position: relative;
 }
 
+.contact-form {
+  label {
+    font-size: 1.2rem;
+  }
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
 .clear {
   position: absolute;
   top: 1rem;
@@ -38,6 +50,7 @@ form {
   input {
     width: 100%;
     border: none;
+
     &:focus {
       border: none;
     }
