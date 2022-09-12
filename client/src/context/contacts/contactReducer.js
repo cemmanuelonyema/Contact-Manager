@@ -1,5 +1,11 @@
 import React from "react";
-import { DELETE_CONTACT } from "../actiontypes";
+import {
+  ADD_CONTACT,
+  CLEAR_FILTER,
+  DELETE_CONTACT,
+  FILTER_CONTACTS,
+  TOGGLE_MODAL,
+} from "../actiontypes";
 
 export const INITIAL_STATE = {
   contacts: [
@@ -47,10 +53,19 @@ export const INITIAL_STATE = {
     },
   ],
   current: null,
+  filtered: null,
+  modalOpen: false,
+  //   contacts: null,
 };
 
 export const contactReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case ADD_CONTACT:
+      return {
+        ...state,
+        contacts: [action.payload, ...state.contacts],
+        loading: false,
+      };
     case DELETE_CONTACT:
       return {
         ...state,
@@ -58,6 +73,32 @@ export const contactReducer = (state = INITIAL_STATE, action) => {
           (contact) => contact.id !== action.payload
         ),
         loading: false,
+      };
+
+    case FILTER_CONTACTS:
+      return {
+        ...state,
+        filtered: state.contacts.filter((contact) => {
+          const regex = new RegExp(`${action.payload}`, "gi");
+          console.log("payload:", action.payload);
+          const name = contact.name.match(regex);
+          const email = contact.email.match(regex);
+          const phone = contact.phone.match(regex);
+          console.log("name:", name, "email:", email);
+          return name || email || phone;
+        }),
+        loading: false,
+      };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null,
+        loading: false,
+      };
+    case TOGGLE_MODAL:
+      return {
+        ...state,
+        modalOpen: !state.modalOpen,
       };
 
     default:

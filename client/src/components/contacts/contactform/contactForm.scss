@@ -1,5 +1,19 @@
+@import "../../../styles/abstract/mixins";
+
 form {
   position: relative;
+}
+
+.contact-form {
+  label {
+    font-size: 1.2rem;
+  }
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
 }
 
 .clear {
@@ -10,4 +24,35 @@ form {
   height: 2rem;
   border: 1px solid black;
   border-radius: 50%;
+}
+
+.search-form {
+  @include respond(phone) {
+    display: none;
+  }
+  //   @include respond(phone) {
+  //     display: none;
+  //   }
+}
+
+.search--form-mobile {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  display: flex;
+  gap: 1rem;
+  border: 1px solid black;
+  @include respond(minPhone) {
+    display: none;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+
+    &:focus {
+      border: none;
+    }
+  }
 }

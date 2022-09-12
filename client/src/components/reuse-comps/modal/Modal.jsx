@@ -1,23 +1,18 @@
 import React, { useState } from "react";
-import { Fragment } from "react";
+import { useContext } from "react";
+import { FaTimes } from "react-icons/fa";
+import { ContactContext } from "../../../context/contacts/ContactProvider";
 import { ContactForm } from "../../contacts/contactform/ContactForm";
 import "./modal.scss";
 
 export const Modal = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    if (open === false) {
-      setOpen(true);
-    }
-  };
+  const { toggleModal } = useContext(ContactContext);
 
   return (
     <div className="modal__container" id="modal-container">
       <div className="modal__content">
-        <button className="btn-close" onClick={handleClick}>
-          X
-        </button>
+        <FaTimes onClick={() => toggleModal()} />
+        <ContactForm />
       </div>
       {/*
                     <div className="modal__close close-modal" title="Close">

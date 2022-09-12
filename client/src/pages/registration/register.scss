@@ -1,77 +1,84 @@
 @import "../../styles/abstract/mixins";
 
-.page__container {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
+.register {
+  .page__container {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
 
-  .left {
-    width: 40vw;
-    height: 100vh;
-    background-color: black;
+    .left {
+      width: 40vw;
+      height: 100vh;
+      background-color: black;
 
-    @include respond(phone) {
-      display: none;
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    .right {
+      width: 60vw;
+      padding: 0 6vw;
+
+      @include respond(phone) {
+        width: 100vw;
+      }
     }
   }
 
-  .right {
-    width: 60vw;
-    padding: 0 6vw;
+  .form__container {
+    max-width: 400px;
+    margin: auto;
+    padding: 3rem;
+    // box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
 
-    @include respond(phone) {
-      width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    p {
+      font-size: 1.2rem;
     }
   }
-}
 
-.form__container {
-  max-width: 400px;
-  margin: auto;
-  padding: 3rem;
-  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+  form {
+    .form_group {
+      margin: 1.5rem 0;
+    }
 
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+    .form_group {
+      input,
+      label,
+      span {
+        display: block;
+      }
 
-  h1 {
-    font-size: 2rem;
-  }
-  h3 {
-    font-size: 1.4rem;
-  }
-  p {
-    font-size: 1.2rem;
-  }
-}
+      input {
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 1.6rem;
 
-form {
-  .form_group {
-    margin: 1.5rem 0;
-  }
+        &:focus {
+          border: none;
+          box-shadow: 0;
+        }
+      }
 
-  .form_group {
-    input,
-    label,
+      label {
+        margin-bottom: 0.5rem;
+      }
+    }
+
     span {
+      margin-top: 1rem;
       display: block;
     }
-
-    input {
-      width: 100%;
-      padding: 0.4rem;
-      font-size: 1.2rem;
-      //   border: 1px solid #ccc;
-    }
-
-    label {
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  span {
-    margin-top: 1rem;
   }
 }
 
