@@ -1,4 +1,5 @@
 import React, { useReducer, createContext } from "react";
+import { addContactApi, contactApi } from "../../api/contactApi";
 
 //types
 import {
@@ -23,8 +24,26 @@ export const ContactProvider = ({ children }) => {
   //Actions
   /************************************/
   //ADD Contact
-  const addContact = (contact) => {
-    dispatch({ type: ADD_CONTACT, payload: contact });
+  const addContact = async (contact) => {
+    // const config = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
+
+    // try {
+    //   const res = await contactApi.post("", contact, config);
+    // console.log(res.data);
+    // dispatch({ type: ADD_CONTACT, payload: res.data });
+    // } catch (err) {}
+    try {
+      const res = await addContactApi(contact);
+      console.log(res.data);
+      dispatch({ type: ADD_CONTACT, payload: res.data });
+    } catch (err) {
+      console.log("err:", err, "err.res.msg:", err.response.msg);
+      dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
+    }
   };
 
   //DELETE Contact
