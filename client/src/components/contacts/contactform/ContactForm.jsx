@@ -49,7 +49,10 @@ export const ContactForm = () => {
       <h2 className="">Add Contact</h2>
 
       <div className="form__group">
-        <label>Name</label>
+        <div className="label-group">
+          <label>Name</label>
+          <span>*</span>
+        </div>
         <input
           type="text"
           placeholder="Name"
@@ -58,8 +61,12 @@ export const ContactForm = () => {
           onChange={handleChange}
         />
       </div>
+
       <div className="form__group">
-        <label>Email</label>
+        <div className="label-group">
+          <label>Email</label>
+          <span>*</span>
+        </div>
 
         <input
           type="email"
@@ -71,8 +78,10 @@ export const ContactForm = () => {
       </div>
 
       <div className="form__group">
-        <label>Phone number</label>
-
+        <div className="label-group">
+          <label>Phone number</label>
+          <span>*</span>
+        </div>
         <input
           type="text"
           placeholder="Phone"
@@ -127,9 +136,26 @@ export const ContactForm = () => {
 };
 
 export const SearchForm = () => {
+  const [searchValue, setSearchValue] = useState("");
+  const { filterContacts, clearFilter } = useContext(ContactContext);
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+    //   console.log(searchValue);
+    filterContacts(searchValue);
+  };
+  const handleClear = () => {
+    setSearchValue("");
+    clearFilter();
+  };
   return (
-    <form className="search-form">
-      <input type="text" placeholder="Search Contacts" />
+    <form className="search--form-web" onSubmit={(e) => e.preventDefault()}>
+      <input
+        type="text"
+        placeholder="Search Contacts"
+        value={searchValue}
+        onChange={handleChange}
+      />
+      {searchValue !== "" ? <FaTimes onClick={handleClear} /> : ""}
     </form>
   );
 };

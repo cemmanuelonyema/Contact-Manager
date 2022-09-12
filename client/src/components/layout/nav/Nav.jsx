@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { SearchForm } from "../../contacts/contactform/ContactForm";
+import { FiUserPlus } from "react-icons/fi";
 
 import "./nav.scss";
+import { ContactContext } from "../../../context/contacts/ContactProvider";
 
 export const NavHeader = () => {
   return (
@@ -25,6 +27,7 @@ export const NavHeader = () => {
 };
 
 export const NavBar = () => {
+  const { toggleModal } = useContext(ContactContext);
   const [isActive, setIsActive] = useState(false);
   const handleToggle = () => setIsActive(!isActive);
   return (
@@ -53,13 +56,18 @@ export const NavBar = () => {
           </li>
         </ul>
 
-        <div
-          className={`menuIcon ${isActive ? "open" : ""} `}
-          onClick={handleToggle}
-        >
-          <span className="menuIcon__bar menuIcon__bar-a"></span>
-          <span className="menuIcon__bar menuIcon__bar-b"></span>
-          <span className="menuIcon__bar menuIcon__bar-c"></span>
+        <div className="mobile-right">
+          <div>
+            <FiUserPlus className="icon-user" onClick={() => toggleModal()} />
+          </div>
+          <div
+            className={`menuIcon ${isActive ? "open" : ""} `}
+            onClick={handleToggle}
+          >
+            <span className="menuIcon__bar menuIcon__bar-a"></span>
+            <span className="menuIcon__bar menuIcon__bar-b"></span>
+            <span className="menuIcon__bar menuIcon__bar-c"></span>
+          </div>
         </div>
       </div>
     </nav>
