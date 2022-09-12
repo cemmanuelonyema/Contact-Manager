@@ -1,0 +1,4 @@
+{
+  "mongoURL": "mongodb+srv://Onyema:KFkB5gZjPKwZ3uWf@contacts.yf0hewb.mongodb.net/?retryWrites=true&w=majority",
+  "jwtSecret": "tokensecret"
+}
