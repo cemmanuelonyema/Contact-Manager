@@ -16,7 +16,7 @@ export const Modal = () => {
       className="modal__container"
       id="modal-container"
       ref={modalRef}
-      onClick={handleClick}
+      //   onClick={handleClick}
     >
       <div className="modal__content">
         <FaTimes onClick={handleClick} />

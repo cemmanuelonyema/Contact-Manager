@@ -55,7 +55,7 @@ export const INITIAL_STATE = {
   current: null,
   filtered: null,
   modalOpen: false,
-  //   contacts: null,
+  current: null,
 };
 
 export const contactReducer = (state = INITIAL_STATE, action) => {

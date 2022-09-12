@@ -1,14 +1,22 @@
 import React, { useReducer, createContext } from "react";
-import { addContactApi, contactApi } from "../../api/contactApi";
+import {
+  addContactApi,
+  deleteContactApi,
+  updateContactApi,
+  getContactsApi,
+} from "../../api/contactApi";
 
 //types
 import {
   ADD_CONTACT,
   CLEAR_CONTACTS,
   CLEAR_FILTER,
+  CONTACT_ERROR,
   DELETE_CONTACT,
   FILTER_CONTACTS,
+  GET_CONTACTS,
   TOGGLE_MODAL,
+  UPDATE_CONTACT,
 } from "../actiontypes";
 
 import { contactReducer, INITIAL_STATE } from "./contactReducer";
@@ -47,8 +55,33 @@ export const ContactProvider = ({ children }) => {
   };
 
   //DELETE Contact
-  const deleteContact = (id) => {
-    dispatch({ type: DELETE_CONTACT, payload: id });
+  const deleteContact = async (id) => {
+    try {
+      const res = await deleteContactApi(id);
+      dispatch({ type: DELETE_CONTACT, payload: res.data });
+    } catch (err) {
+      dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
+    }
+  };
+
+  //UPDATE Contact
+  const updateContact = async (contact) => {
+    try {
+      const res = await updateContactApi(contact.id);
+      dispatch({ type: UPDATE_CONTACT, payload: res.data });
+    } catch (err) {
+      dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
+    }
+  };
+
+  //GET Contact
+  const getContacts = async (contact) => {
+    try {
+      const res = await getContactsApi(contact);
+      dispatch({ type: GET_CONTACTS, payload: res.data });
+    } catch (error) {
+      dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
+    }
   };
 
   //FILTER Contact
@@ -72,6 +105,8 @@ export const ContactProvider = ({ children }) => {
     modalOpen,
     addContact,
     deleteContact,
+    updateContact,
+    getContacts,
     filterContacts,
     clearFilter,
     toggleModal,
