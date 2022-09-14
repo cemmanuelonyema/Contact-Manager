@@ -3,7 +3,7 @@ import "./landing.scss";
 
 export const About = () => {
   return (
-    <section className="about" id="#section--about">
+    <section className="about" id="#section--abouts">
       <div className="container about__container">
         <div className="image--container"></div>
         <div className="content">

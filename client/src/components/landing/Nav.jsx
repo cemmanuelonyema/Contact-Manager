@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Nav = () => {
   return (
-    <nav>
+    <nav className="landing-nav">
       <div className="logo">
         <a href="/">
           <img src="" alt="logo" className="logo__img" />
@@ -10,19 +11,13 @@ export const Nav = () => {
       </div>
       <ul>
         <li>
-          <a href="#section--about" to="/login">
-            About
-          </a>
+          <a href="#section--features">Features</a>
         </li>
         <li>
-          <a href="#section--features" to="/register">
-            Features
-          </a>
+          <a href="#section--tech">Tech</a>
         </li>
         <li>
-          <a href="#section--tech" to="/register">
-            Tech
-          </a>
+          <Link to="/contact">Demo</Link>
         </li>
       </ul>
     </nav>
