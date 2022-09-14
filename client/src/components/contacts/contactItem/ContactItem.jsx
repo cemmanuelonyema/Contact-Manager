@@ -22,8 +22,10 @@ import "./contactItem.scss";
 export const ContactItem = ({ contact }) => {
   const handleEdit = () => {
     toggleModal();
+    setCurrentContact(contact);
   };
-  const { deleteContact, toggleModal } = useContext(ContactContext);
+  const { deleteContact, toggleModal, setCurrentContact, clearCurrentContact } =
+    useContext(ContactContext);
   const {
     id,
     name,

@@ -1,9 +1,11 @@
 import React from "react";
 import {
   ADD_CONTACT,
+  CLEAR_CURRENT_CONTACT,
   CLEAR_FILTER,
   DELETE_CONTACT,
   FILTER_CONTACTS,
+  SET_CURRENT_CONTACT,
   TOGGLE_MODAL,
 } from "../actiontypes";
 
@@ -74,6 +76,14 @@ export const contactReducer = (state = INITIAL_STATE, action) => {
         ),
         loading: false,
       };
+    case UPDATE_CONTACT:
+      return {
+        ...state,
+        contacts: state.contacts.map((contact) =>
+          contact._id === action.payload._id ? action.payload : contact
+        ),
+        loading: false,
+      };
 
     case FILTER_CONTACTS:
       return {
@@ -88,6 +98,16 @@ export const contactReducer = (state = INITIAL_STATE, action) => {
           return name || email || phone;
         }),
         loading: false,
+      };
+    case SET_CURRENT_CONTACT:
+      return {
+        ...state,
+        current: action.payload,
+      };
+    case CLEAR_CURRENT_CONTACT:
+      return {
+        ...state,
+        current: null,
       };
     case CLEAR_FILTER:
       return {

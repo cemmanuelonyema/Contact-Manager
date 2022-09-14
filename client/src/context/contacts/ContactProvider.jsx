@@ -10,11 +10,13 @@ import {
 import {
   ADD_CONTACT,
   CLEAR_CONTACTS,
+  CLEAR_CURRENT_CONTACT,
   CLEAR_FILTER,
   CONTACT_ERROR,
   DELETE_CONTACT,
   FILTER_CONTACTS,
   GET_CONTACTS,
+  SET_CURRENT_CONTACT,
   TOGGLE_MODAL,
   UPDATE_CONTACT,
 } from "../actiontypes";
@@ -84,6 +86,16 @@ export const ContactProvider = ({ children }) => {
     }
   };
 
+  //SET CURRENT CONTACT
+  const setCurrentContact = (contact) => {
+    dispatch({ type: SET_CURRENT_CONTACT, payload: contact });
+  };
+
+  //CLEAR CURRENT CONTACT
+  const clearCurrentContact = () => {
+    dispatch({ type: CLEAR_CURRENT_CONTACT });
+  };
+
   //FILTER Contact
   const filterContacts = (id) => {
     dispatch({ type: FILTER_CONTACTS, payload: id });
@@ -107,6 +119,8 @@ export const ContactProvider = ({ children }) => {
     deleteContact,
     updateContact,
     getContacts,
+    setCurrentContact,
+    clearCurrentContact,
     filterContacts,
     clearFilter,
     toggleModal,

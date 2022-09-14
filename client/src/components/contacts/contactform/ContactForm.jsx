@@ -1,11 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 
 import { ContactContext } from "../../../context/contacts/ContactProvider";
 import "./contactForm.scss";
 
 export const ContactForm = () => {
-  const { addContact } = useContext(ContactContext);
+  const { addContact, current, clearCurrentContact } =
+    useContext(ContactContext);
   //Local State
   const [contact, setContact] = useState({
     name: "",
@@ -19,6 +20,22 @@ export const ContactForm = () => {
 
   const { name, email, phone, contact_label, linkedIn, instagram, twitter } =
     contact;
+
+  useEffect(() => {
+    if (current) {
+      setContact(current);
+    } else {
+      setContact({
+        name: "",
+        email: "",
+        phone: "",
+        contact_label: "",
+        linkedIn: "",
+        instagram: "",
+        twitter: "",
+      });
+    }
+  }, [current]);
 
   //methods
   const handleChange = (e) =>
@@ -46,7 +63,7 @@ export const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="contact-form">
-      <h2 className="">Add Contact</h2>
+      <h2 className="">{current !== null ? "Edit contact " : "Add Contact"}</h2>
 
       <div className="form__group">
         <div className="label-group">
@@ -127,17 +144,28 @@ export const ContactForm = () => {
 
       <input
         type="submit"
-        value={"Add Contact"}
+        value={current !== null ? "Update " : "Add "}
         className="btn btn-primary btn-block"
       />
-      {/* <div className="clear">clear</div> */}
+
+      {current !== null ? (
+        <input
+          onClick={() => clearCurrentContact()}
+          type="submit"
+          value={"Clear fields "}
+          className="btn btn-primary btn-block"
+        />
+      ) : (
+        ""
+      )}
     </form>
   );
 };
 
 export const SearchForm = () => {
   const [searchValue, setSearchValue] = useState("");
-  const { filterContacts, clearFilter } = useContext(ContactContext);
+  const { filterContacts, clearFilter, current } = useContext(ContactContext);
+
   const handleChange = (e) => {
     setSearchValue(e.target.value);
     //   console.log(searchValue);
