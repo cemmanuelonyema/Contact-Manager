@@ -4,20 +4,21 @@
   .page__container {
     display: flex;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
 
-    .left {
-      width: 40vw;
-      height: 100vh;
-      background-color: black;
+    // .left {
+    //   width: 40vw;
+    //   height: 100vh;
+    //   //   background-color: black;
 
-      @include respond(phone) {
-        display: none;
-      }
-    }
+    //   @include respond(phone) {
+    //     display: none;
+    //   }
+    // }
 
     .right {
-      width: 60vw;
+      //   width: 100vw;
       padding: 0 6vw;
 
       @include respond(phone) {
@@ -49,7 +50,7 @@
 
   form {
     .form_group {
-      margin: 1.5rem 0;
+      margin: 1rem 0;
     }
 
     .form_group {
@@ -61,7 +62,7 @@
 
       input {
         width: 100%;
-        padding: 1.5rem;
+        padding: 0.5rem;
         font-size: 1.6rem;
 
         &:focus {
