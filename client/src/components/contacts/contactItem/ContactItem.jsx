@@ -26,16 +26,8 @@ export const ContactItem = ({ contact }) => {
   };
   const { deleteContact, toggleModal, setCurrentContact, clearCurrentContact } =
     useContext(ContactContext);
-  const {
-    id,
-    name,
-    email,
-    phone,
-    contact_label,
-    linkedIn,
-    twitter,
-    instagram,
-  } = contact;
+  const { id, name, email, phone, label, linkedIn, twitter, instagram } =
+    contact;
 
   return (
     <div className="card">
@@ -73,7 +65,9 @@ export const ContactItem = ({ contact }) => {
         </div>
         <div className="input__group">
           <FiUsers className="icon" />
-          <span>{contact_label ? contact_label : ""}</span>
+          <span>
+            {label ? label.charAt(0).toUpperCase() + label.slice(1) : ""}
+          </span>
         </div>
       </div>
       <div className="btns">

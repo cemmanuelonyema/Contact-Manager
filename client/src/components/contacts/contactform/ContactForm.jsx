@@ -5,21 +5,20 @@ import { ContactContext } from "../../../context/contacts/ContactProvider";
 import "./contactForm.scss";
 
 export const ContactForm = () => {
-  const { addContact, current, clearCurrentContact } =
+  const { addContact, current, clearCurrentContact, toggleModal } =
     useContext(ContactContext);
   //Local State
   const [contact, setContact] = useState({
     name: "",
     email: "",
     phone: "",
-    contact_label: "",
     linkedIn: "",
     instagram: "",
     twitter: "",
+    label: "",
   });
 
-  const { name, email, phone, contact_label, linkedIn, instagram, twitter } =
-    contact;
+  const { name, email, phone, label, linkedIn, instagram, twitter } = contact;
 
   useEffect(() => {
     if (current) {
@@ -29,7 +28,7 @@ export const ContactForm = () => {
         name: "",
         email: "",
         phone: "",
-        contact_label: "",
+        label: "",
         linkedIn: "",
         instagram: "",
         twitter: "",
@@ -49,12 +48,14 @@ export const ContactForm = () => {
     console.log(contact);
 
     addContact(contact);
+    toggleModal();
+    clearCurrentContact();
 
     setContact({
       name: "",
       email: "",
       phone: "",
-      contact_label: "",
+      label: "",
       linkedIn: "",
       instagram: "",
       twitter: "",
@@ -140,6 +141,15 @@ export const ContactForm = () => {
           value={twitter}
           onChange={handleChange}
         />
+      </div>
+
+      <div className="form__group">
+        <label>Contact Label</label>
+        <select name="label" value={label} onChange={handleChange}>
+          <option value="family">Family</option>
+          <option value="professional">Professional</option>
+          <option value="friend">Friend</option>
+        </select>
       </div>
 
       <input

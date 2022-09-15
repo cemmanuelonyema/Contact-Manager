@@ -7,6 +7,7 @@ import {
   FILTER_CONTACTS,
   SET_CURRENT_CONTACT,
   TOGGLE_MODAL,
+  UPDATE_CONTACT,
 } from "../actiontypes";
 
 export const INITIAL_STATE = {
@@ -16,42 +17,57 @@ export const INITIAL_STATE = {
       name: "Emmanuel Onyema",
       email: "onyemaceo@mail.com",
       phone: "07025053595",
-      contact_label: "personal",
+      label: "professional",
+      twitter: "https:twitter.com/ceonyema_",
+      instagram: "i sta",
+      linkedIn: "linked",
     },
     {
       id: 1,
       name: "sara watson1",
       email: "sara@gmail.com",
       phone: "222-333-2222",
-      contact_label: "personal",
+      label: "friend",
+      twitter: "",
+      instagram: "",
+      linkedIn: "Linked ",
     },
     {
       id: 2,
       name: "sara watson2",
       email: "sara@gmail.com",
       phone: "222-444-2222",
-      contact_label: "personal",
+      label: "family",
+      twitter: "",
+      instagram: "",
+      linkedIn: "",
     },
     {
       id: 3,
       name: "sara watson3",
       email: "sara@gmail.com",
       phone: "222-555-2222",
-      contact_label: "personal",
+      label: "friend",
+      twitter: "",
+      instagram: "",
+      linkedIn: "",
     },
     {
       id: 4,
       name: "sara watson4",
       email: "sara@gmail.com",
       phone: "222-666-2222",
-      contact_label: "personal",
+      label: "family",
     },
     {
       id: 5,
       name: "sara watson5",
       email: "sara@gmail.com",
       phone: "222-777-2222",
-      contact_label: "professional",
+      label: "professional",
+      twitter: "",
+      instagram: "",
+      linkedIn: "",
     },
   ],
   current: null,
@@ -80,7 +96,7 @@ export const contactReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         contacts: state.contacts.map((contact) =>
-          contact._id === action.payload._id ? action.payload : contact
+          contact.id === action.payload.id ? action.payload : contact
         ),
         loading: false,
       };
