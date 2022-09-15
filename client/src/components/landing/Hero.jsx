@@ -25,8 +25,13 @@ export const Hero = () => {
           </p>
           <Link to="/contact">Lunch app</Link>
         </div>
-        <div>
-          <Lottie options={defaultSetting} height={500} width={500} />
+        <div className="hero__img">
+          <Lottie
+            options={defaultSetting}
+            // height={400}
+            // width={400}
+            // className="lottieFile"
+          />
         </div>
       </div>
     </section>

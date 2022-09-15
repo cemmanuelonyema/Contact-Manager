@@ -26,18 +26,26 @@
 //Hero
 /*****************************************************************/
 .hero {
-  background-color: blue;
-  height: calc(100vh - 6rem);
-  display: flex;
+  //   background-color: blue;
+  //   height: calc(100vh - 6rem);
   align-items: center;
   justify-content: center;
 
   &__container {
+    // grid-template-columns: repeat(2, minmax(30rem, 1fr));
     grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 5rem;
 
     @include respond(phone) {
       text-align: center;
     }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   h1 {
@@ -50,6 +58,11 @@
 
   p {
     font: 2rem;
+  }
+
+  .lottieFile {
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -67,6 +80,7 @@
 .tech {
   &__container {
     grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
   }
 }
 
@@ -102,4 +116,11 @@
   @include respond(phone) {
     grid-template-columns: 1fr;
   }
+}
+
+section {
+  padding: 0 6vw;
+}
+section h2 {
+  text-align: center;
 }

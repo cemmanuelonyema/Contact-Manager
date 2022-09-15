@@ -15,7 +15,7 @@ export const Landing = () => {
       </header>
       <main>
         <Hero />
-        <About />
+        {/* <About /> */}
         <Features />
         <Tech />
         <Footer />
