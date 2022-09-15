@@ -1,8 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaCheck, FaInfoCircle, FaTimes } from "react-icons/fa";
 import "./register.scss";
-import { useEffect } from "react";
+import Lottie from "react-lottie";
+import animationData from "../../lottie/contacts-book.json";
 
 const NAME_REGEX = /^[a-zA-Z][a-zA-z0-9-_]{3,23}$/;
 const EMAIL_REGEX = /^[a-z](?=.*[ @])/;
@@ -59,15 +60,19 @@ export const Register = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
 
   const handleSubmit = () => {};
+
+  const defaultSetting = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <section className="register">
       <div className="page__container">
-        <div className="left">
-          <FaCheck />
-          <FaInfoCircle />
-          <FaTimes />
-        </div>
-
         <div className="right">
           <div className="form__container">
             <h1>Register</h1>
@@ -115,7 +120,7 @@ export const Register = () => {
                   name="password2"
                   value={password2}
                   onChange={handleChange}
-                  placeholder="your password confirmation"
+                  placeholder="your  password confirmation"
                 />
               </div>
               <input

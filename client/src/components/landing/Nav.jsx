@@ -2,7 +2,7 @@ import React from "react";
 
 export const Nav = () => {
   return (
-    <nav>
+    <nav className="landing-nav">
       <div className="logo">
         <a href="/">
           <img src="" alt="logo" className="logo__img" />

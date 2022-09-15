@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useContext } from "react";
 import { FaTimes } from "react-icons/fa";
 import { ContactContext } from "../../../context/contacts/ContactProvider";
@@ -7,31 +7,21 @@ import "./modal.scss";
 
 export const Modal = () => {
   const { toggleModal } = useContext(ContactContext);
+  const handleClick = () => toggleModal();
+
+  const modalRef = useRef();
 
   return (
-    <div className="modal__container" id="modal-container">
+    <div
+      className="modal__container"
+      id="modal-container"
+      ref={modalRef}
+      //   onClick={handleClick}
+    >
       <div className="modal__content">
-        <FaTimes onClick={() => toggleModal()} />
+        <FaTimes onClick={handleClick} />
         <ContactForm />
       </div>
-      {/*
-                    <div className="modal__close close-modal" title="Close">
-                        <i className='bx bx-x'></i>
-                    </div>
-
-
-                    <h1 className="modal__title">Good Job!</h1>
-                    <p className="modal__description">Click the button to close</p>
-
-                    <button className="modal__button modal__button-width">
-                        View status
-                    </button>
-
-                    <button className="modal__button-link close-modal">
-                        Close
-                    </button> 
-                </div>
-                    */}
     </div>
   );
 };
