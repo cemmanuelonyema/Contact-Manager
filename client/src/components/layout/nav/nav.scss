@@ -2,21 +2,17 @@
 
 .nav {
   background-color: var(--white);
-  border: 1px solid black;
   position: fixed;
   width: 100%;
   z-index: 20;
   top: 0;
   left: 0;
   right: 0;
-  margin-bottom: 4rem;
-  //   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
-  //     0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3);
 
   &__container {
-    border: 1px solid black;
-    width: 100rem;
-
+    max-width: 100rem;
+    margin: 0 auto;
     z-index: 200;
     display: flex;
     align-items: center;
@@ -38,7 +34,6 @@
       position: fixed;
       top: 0;
       right: -100%;
-      //   border: 5px solid black;
       padding: 0 2rem;
       transition: all ease-in-out 0.5s;
     }
@@ -86,6 +81,16 @@
       margin: 0;
       display: block;
       padding: 2rem 0;
+    }
+  }
+
+  .mobile-right {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    .icon-user {
+      font-size: 3rem;
     }
   }
 }

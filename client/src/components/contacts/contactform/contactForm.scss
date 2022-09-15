@@ -5,8 +5,21 @@ form {
 }
 
 .contact-form {
+  border-radius: 1rem;
+
   label {
     font-size: 1.2rem;
+  }
+
+  .label-group {
+    display: flex;
+    align-items: center;
+
+    span {
+      color: red;
+      font-size: 1.4rem;
+      margin-left: 5px;
+    }
   }
   input {
     width: 100%;
@@ -26,33 +39,38 @@ form {
   border-radius: 50%;
 }
 
-.search-form {
-  @include respond(phone) {
-    display: none;
-  }
-  //   @include respond(phone) {
-  //     display: none;
-  //   }
-}
-
+.search--form-web,
 .search--form-mobile {
-  width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   font-size: 1.6rem;
   border-radius: 5px;
   display: flex;
   gap: 1rem;
   border: 1px solid black;
-  @include respond(minPhone) {
-    display: none;
-  }
 
   input {
     width: 100%;
     border: none;
+    background-color: var(--white);
 
     &:focus {
       border: none;
     }
+  }
+}
+
+.search--form-web {
+  width: 50%;
+
+  @include respond(phone) {
+    display: none;
+  }
+}
+
+.search--form-mobile {
+  width: 100%;
+
+  @include respond(minPhone) {
+    display: none;
   }
 }
