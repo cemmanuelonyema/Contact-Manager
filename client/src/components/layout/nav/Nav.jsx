@@ -34,7 +34,7 @@ export const NavBar = () => {
     <nav className="nav">
       <div className="nav__container">
         <div className="logo">
-          <img src="" alt="logo" />
+          <p>Hi Emmanuel</p>
         </div>
         <SearchForm />
 
