@@ -1,6 +1,9 @@
 import {
+  AUTH_ERROR,
+  CLEAR_ERRORS,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
+  LOGOUT,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
 } from "../actiontypes";
@@ -25,9 +28,16 @@ export const authReducer = (state = INITIAL_STATE, action) => {
         isAuthenticated: true,
         loading: false,
       };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
 
     case REGISTER_FAIL:
     case LOGIN_FAIL:
+    case LOGOUT:
+    case AUTH_ERROR:
       localStorage.removeItem("token");
       return {
         ...state,

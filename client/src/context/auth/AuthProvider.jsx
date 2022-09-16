@@ -1,6 +1,12 @@
 import axios from "axios";
 import React, { useReducer, createContext } from "react";
-import { LOGIN_SUCCESS, REGISTER_FAIL, REGISTER_SUCCESS } from "../actiontypes";
+import { setAuthToken } from "../../utils/setAuthToken";
+import {
+  CLEAR_ERRORS,
+  LOGIN_SUCCESS,
+  REGISTER_FAIL,
+  REGISTER_SUCCESS,
+} from "../actiontypes";
 
 import { authReducer, INITIAL_STATE } from "./authReducer";
 
@@ -45,6 +51,30 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  //Log out User
+  const logoutUser = () => {
+    dispatch({ type: LOGOUT });
+  };
+
+  //Load User
+  const loadUser = async () => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+    try {
+      const res = await axios.get("/api/v1/auth");
+      console.log(res);
+      dispatch({ type: USER_LOADED, payload: res.data });
+    } catch (err) {
+      dispatch({ type: AUTH_ERROR });
+    }
+  };
+
+  //Clear Errors
+  const clearErrors = () => {
+    dispatch({ type: CLEAR_ERRORS });
+  };
+
   const value = {
     token,
     isAuthenticated,
@@ -53,8 +83,9 @@ export const AuthProvider = ({ children }) => {
     error,
     registerUser,
     loginUser,
-    // loadUser,
-    // logoutUser,
+    logoutUser,
+    clearErrors,
+    loadUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
