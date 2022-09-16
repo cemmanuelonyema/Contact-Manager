@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useReducer, createContext } from "react";
-import { REGISTER_FAIL, REGISTER_SUCCESS } from "../actiontypes";
+import { LOGIN_SUCCESS, REGISTER_FAIL, REGISTER_SUCCESS } from "../actiontypes";
 
 import { authReducer, INITIAL_STATE } from "./authReducer";
 
@@ -15,18 +15,33 @@ export const AuthProvider = ({ children }) => {
   //Actions
   /************************************/
   //Register user
-  const registerUser = async (contact) => {
+  const registerUser = async (form) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
     };
     try {
-      const res = await axios.post("/api/v1/register", contact, config);
+      const res = await axios.post("/api/v1/register", form, config);
       console.log(res.data);
       dispatch({ type: REGISTER_SUCCESS, payload: res.data }); // res.data = token
     } catch (err) {
       dispatch({ type: REGISTER_FAIL, payload: err.response.data.msg });
+    }
+  };
+  //Login user
+  const loginUser = async (form) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      const res = await axios.post("/api/v1/login", form, config);
+      console.log(res.data);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data }); // res.data = token
+    } catch (err) {
+      dispatch({ type: LOGIN_FAIL, payload: err.response.data.msg });
     }
   };
 
@@ -37,8 +52,8 @@ export const AuthProvider = ({ children }) => {
     user,
     error,
     registerUser,
+    loginUser,
     // loadUser,
-    // loginUser,
     // logoutUser,
   };
 
