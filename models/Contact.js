@@ -19,7 +19,7 @@ const ContactSchema = mongoose.Schema({
   phone: {
     type: String,
   },
-  contact_label: {
+  label: {
     type: String,
   },
   twitter: {
