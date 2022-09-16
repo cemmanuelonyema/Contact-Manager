@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaCheck, FaInfoCircle, FaTimes } from "react-icons/fa";
 import "./register.scss";
 import Lottie from "react-lottie";
 import animationData from "../../lottie/contacts-book.json";
+import { AuthContext } from "../../context/auth/AuthProvider";
 
 const NAME_REGEX = /^[a-zA-Z][a-zA-z0-9-_]{3,23}$/;
 const EMAIL_REGEX = /^[a-z](?=.*[ @])/;
@@ -55,19 +56,17 @@ export const Register = () => {
   //     const passwordMatched = password === password2;
   //   }, [name, email, password, password2]);
 
+  const { registerUser } = useContext(AuthContext);
+
   //Methods
   const handleChange = (e) =>
     setUser({ ...user, [e.target.name]: e.target.value });
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
 
-  const defaultSetting = {
-    loop: false,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
+    registerUser({ name, email, password });
   };
 
   return (
