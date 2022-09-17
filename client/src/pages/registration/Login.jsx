@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/auth/AuthProvider";
 
 import "./register.scss";
 
@@ -40,7 +42,9 @@ export const Login = () => {
   const handleChange = (e) =>
     setUser({ ...user, [e.target.name]: e.target.value });
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <section className="register">

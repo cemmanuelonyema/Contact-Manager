@@ -28,7 +28,11 @@ export const AuthProvider = ({ children }) => {
       },
     };
     try {
-      const res = await axios.post("/api/v1/register", form, config);
+      const res = await axios.post(
+        "http://localhost:5000/api/v1/register",
+        form,
+        config
+      );
       console.log(res.data);
       dispatch({ type: REGISTER_SUCCESS, payload: res.data }); // res.data = token
     } catch (err) {
