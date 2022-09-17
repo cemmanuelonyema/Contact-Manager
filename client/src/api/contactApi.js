@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const contactApi = axios.create({
-  baseURL: "/api/v1/contacts",
+  baseURL: "/api/v1",
 });
 
 export const addContactApi = async (contact) => {
@@ -10,7 +10,7 @@ export const addContactApi = async (contact) => {
       "Content-Type": "application/json",
     },
   };
-  return await contactApi.post("", contact, config);
+  return await contactApi.post("/contacts", contact, config);
 };
 
 export const updateContactApi = async (contact) => {
@@ -19,7 +19,7 @@ export const updateContactApi = async (contact) => {
       "Content-Type": "application/json",
     },
   };
-  return await contactApi.put(`/${contact.id}`, contact, config);
+  return await contactApi.put(`/contacts/${contact.id}`, contact, config);
 };
 
 export const deleteContactApi = async (id) => {
@@ -37,4 +37,16 @@ export const getContactsApi = async (contact) => {
     },
   };
   return await contactApi.get("", contact, config);
+};
+
+//Auth
+
+//register
+export const registerUserApi = async (contact) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  return await contactApi.post("/register", contact, config);
 };
