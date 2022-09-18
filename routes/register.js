@@ -56,7 +56,7 @@ router.post(
       await user.save();
 
       //and return the jwtToken
-      //Object to send in the token
+      //1) Object to send to jwt
       const payload = {
         user: {
           id: user.id,
@@ -76,7 +76,7 @@ router.post(
         }
       );
     } catch (err) {
-      console.error(err.message);
+      console.error(err);
       res.status(500).json({ msg: "Server Error" });
     }
   }
