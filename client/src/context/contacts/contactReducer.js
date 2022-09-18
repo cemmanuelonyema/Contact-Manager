@@ -7,6 +7,7 @@ import {
   FILTER_CONTACTS,
   SET_CURRENT_CONTACT,
   TOGGLE_MODAL,
+  UPDATE_CONTACT,
 } from "../actiontypes";
 
 export const INITIAL_STATE = {

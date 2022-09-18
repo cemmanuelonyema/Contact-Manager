@@ -38,12 +38,16 @@ export const Login = () => {
   //     const isPasswordValid = PASSWORD_REGEX.test(password);
   //   });
 
+  const { loginUser } = useContext(AuthContext);
+
   // Methods
   const handleChange = (e) =>
     setUser({ ...user, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(user);
+    loginUser({ email, password });
   };
 
   return (

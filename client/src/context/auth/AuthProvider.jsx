@@ -1,8 +1,9 @@
-import axios from "axios";
 import React, { useReducer, createContext } from "react";
+import { contactApi } from "../../api/contactApi";
 import { setAuthToken } from "../../utils/setAuthToken";
 import {
   CLEAR_ERRORS,
+  LOGIN_FAIL,
   LOGIN_SUCCESS,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
@@ -27,18 +28,16 @@ export const AuthProvider = ({ children }) => {
         "Content-Type": "application/json",
       },
     };
+
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/v1/register",
-        form,
-        config
-      );
-      console.log(res.data);
+      const res = await contactApi.post("/register", form, config);
+      console.log(res);
       dispatch({ type: REGISTER_SUCCESS, payload: res.data }); // res.data = token
     } catch (err) {
       dispatch({ type: REGISTER_FAIL, payload: err.response.data.msg });
     }
   };
+
   //Login user
   const loginUser = async (form) => {
     const config = {
@@ -47,10 +46,11 @@ export const AuthProvider = ({ children }) => {
       },
     };
     try {
-      const res = await axios.post("/api/v1/login", form, config);
-      console.log(res.data);
+      const res = await contactApi.post("/login", form, config);
+      console.log(res);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data }); // res.data = token
     } catch (err) {
+      console.log(err.response.data.msg);
       dispatch({ type: LOGIN_FAIL, payload: err.response.data.msg });
     }
   };
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
       setAuthToken(localStorage.token);
     }
     try {
-      const res = await axios.get("/api/v1/auth");
+      const res = await contactApi.get("/login");
       console.log(res);
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (err) {
