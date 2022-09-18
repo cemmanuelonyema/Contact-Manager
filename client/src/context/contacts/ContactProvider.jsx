@@ -47,11 +47,10 @@ export const ContactProvider = ({ children }) => {
     // dispatch({ type: ADD_CONTACT, payload: res.data });
     // } catch (err) {}
     try {
-      const res = await addContactApi(contact);
-      console.log(res.data);
-      dispatch({ type: ADD_CONTACT, payload: res.data });
+      //   const res = await addContactApi(contact);
+      //   console.log(res.data);
+      dispatch({ type: ADD_CONTACT, payload: contact });
     } catch (err) {
-      console.log("err:", err, "err.res.msg:", err.response.msg);
       dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
     }
   };
@@ -59,8 +58,11 @@ export const ContactProvider = ({ children }) => {
   //DELETE Contact
   const deleteContact = async (id) => {
     try {
-      const res = await deleteContactApi(id);
-      dispatch({ type: DELETE_CONTACT, payload: res.data });
+      //   const res = await deleteContactApi(id);
+      //   dispatch({ type: DELETE_CONTACT, payload: res.data });
+
+      //   await axios.delete(`/api/v1/contacts/${id}`);
+      dispatch({ type: DELETE_CONTACT, payload: id });
     } catch (err) {
       dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
     }
@@ -69,8 +71,11 @@ export const ContactProvider = ({ children }) => {
   //UPDATE Contact
   const updateContact = async (contact) => {
     try {
-      const res = await updateContactApi(contact.id);
-      dispatch({ type: UPDATE_CONTACT, payload: res.data });
+      //   const res = await updateContactApi(contact.id);
+      //   dispatch({ type: UPDATE_CONTACT, payload: res.data });
+
+      //   const res = await axios.put(`/api/v1/contacts/${contact.id}`);
+      dispatch({ type: UPDATE_CONTACT, payload: contact });
     } catch (err) {
       dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
     }
