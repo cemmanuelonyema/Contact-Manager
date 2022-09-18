@@ -42,23 +42,7 @@ export const ContactItem = ({ contact }) => {
       {/* <div className="card__avatar">
         <img src="/photo.jpg" alt="avatar" />
       </div> */}
-      <div className="social-links">
-        <a href={twitter ? twitter : ""}>
-          <span className="social-link">
-            <FiTwitter className="icon" />
-          </span>
-        </a>
-        <a href={instagram ? instagram : ""}>
-          <span className="social-link">
-            <FiInstagram className="icon" />
-          </span>
-        </a>
-        <a href={linkedIn ? linkedIn : ""}>
-          <span className="social-link">
-            <FiLinkedin className="icon" />
-          </span>
-        </a>
-      </div>
+
       <div>
         <div className="input__group">
           <FiUser className="icon" />
@@ -75,6 +59,23 @@ export const ContactItem = ({ contact }) => {
           <FiUsers className="icon" />
           <span>{contact_label ? contact_label : ""}</span>
         </div>
+      </div>
+      <div className="social-links">
+        <a href={twitter ? twitter : ""}>
+          <span className="social-link">
+            <FiTwitter className="icon" />
+          </span>
+        </a>
+        <a href={instagram ? instagram : ""}>
+          <span className="social-link">
+            <FiInstagram className="icon" />
+          </span>
+        </a>
+        <a href={linkedIn ? linkedIn : ""}>
+          <span className="social-link">
+            <FiLinkedin className="icon" />
+          </span>
+        </a>
       </div>
       <div className="btns">
         <div className="edit" onClick={handleEdit}>

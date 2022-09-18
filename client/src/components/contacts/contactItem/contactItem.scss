@@ -40,8 +40,8 @@
   align-items: center;
   justify-content: center;
   border: 2px solid black;
-  width: 2rem;
-  height: 2rem;
+  width: 2.8rem;
+  height: 2.8rem;
   border-radius: 50%;
 }
 
@@ -82,9 +82,12 @@
 
   align-content: center;
   padding: 0.2rem;
+
+  .icon {
+    align-self: center;
+  }
 }
 
-.icon {
-  //   font-size: 1.8rem;
-  //   padding: 1rem;
+.social-link {
+  color: black;
 }
