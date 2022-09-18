@@ -1,3 +1,5 @@
+@import "../../styles/abstract/mixins";
+
 /*****************************************************************/
 //Nav
 /*****************************************************************/
@@ -7,9 +9,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 2rem 0;
 
   ul {
     display: flex;
+  }
+
+  li {
+  }
+  a {
+    padding: 1rem;
   }
 }
 
@@ -18,13 +27,25 @@
 /*****************************************************************/
 .hero {
   background-color: blue;
+  height: calc(100vh - 6rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &__container {
     grid-template-columns: repeat(2, 1fr);
+
+    @include respond(phone) {
+      text-align: center;
+    }
   }
 
   h1 {
     font-size: 4rem;
+    @include respond(phone) {
+      //   padding: 6rem 6vw;
+      // font-size: 51%;
+    }
   }
 
   p {
@@ -55,5 +76,30 @@
   }
   h2 {
     font-size: 2rem;
+  }
+}
+
+.footer {
+  &__container {
+    max-width: 100rem;
+    margin: 0 auto;
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 6rem 1rem;
+  }
+  .content {
+    grid-column: 1/3;
+    @include respond(phone) {
+      grid-column: 1/1;
+    }
+  }
+}
+
+.container,
+.footer__container {
+  @include respond(phone) {
+    grid-template-columns: 1fr;
   }
 }

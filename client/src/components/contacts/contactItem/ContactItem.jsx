@@ -30,10 +30,10 @@ export const ContactItem = ({ contact }) => {
     contact;
 
   return (
-    <div className="card">
-      <div className="card__avatar">
+    <article className="card">
+      {/* <div className="card__avatar">
         <img src="/photo.jpg" alt="avatar" />
-      </div>
+      </div> */}
       <div className="social-links">
         <a href={twitter ? twitter : ""}>
           <span className="social-link">
@@ -78,6 +78,6 @@ export const ContactItem = ({ contact }) => {
           <MdOutlineDelete />
         </div>
       </div>
-    </div>
+    </article>
   );
 };
