@@ -1,7 +1,9 @@
 const express = require("express");
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 
 //connect db
 connectDB();
@@ -9,7 +11,7 @@ connectDB();
 app.get("/", (req, res) =>
   res
     .status(200)
-    .json({ msg: "Hello World, Welcome to thr Contact Manager Api" })
+    .json({ msg: "Hello World, Welcome to the Contact Manager Api" })
 );
 
 //Init Middleware  - provide the ability to use req.body

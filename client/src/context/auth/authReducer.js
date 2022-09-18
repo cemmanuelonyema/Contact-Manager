@@ -6,6 +6,7 @@ import {
   LOGOUT,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
+  USER_LOADED,
 } from "../actiontypes";
 
 export const INITIAL_STATE = {
@@ -18,6 +19,14 @@ export const INITIAL_STATE = {
 
 export const authReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case USER_LOADED:
+      return {
+        ...state,
+        user: action.payload, //put the user in state
+        isAuthenticated: true,
+        loading: false,
+      };
+
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);
@@ -28,6 +37,7 @@ export const authReducer = (state = INITIAL_STATE, action) => {
         isAuthenticated: true,
         loading: false,
       };
+
     case CLEAR_ERRORS:
       return {
         ...state,
