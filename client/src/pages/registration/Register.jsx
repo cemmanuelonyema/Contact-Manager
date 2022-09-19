@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaCheck, FaInfoCircle, FaTimes } from "react-icons/fa";
 import "./register.scss";
 import Lottie from "react-lottie";
@@ -56,7 +56,7 @@ export const Register = () => {
   //     const passwordMatched = password === password2;
   //   }, [name, email, password, password2]);
 
-  const { registerUser } = useContext(AuthContext);
+  const { registerUser, isAuthenticated } = useContext(AuthContext);
 
   //Methods
   const handleChange = (e) =>
@@ -68,6 +68,11 @@ export const Register = () => {
 
     registerUser({ name, email, password });
   };
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isAuthenticated) navigate("/contacts");
+  }, [isAuthenticated, navigate]);
 
   return (
     <section className="register">
