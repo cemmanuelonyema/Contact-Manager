@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth/AuthProvider";
 
 import "./register.scss";
@@ -38,7 +37,12 @@ export const Login = () => {
   //     const isPasswordValid = PASSWORD_REGEX.test(password);
   //   });
 
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, isAuthenticated } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) navigate("/contacts");
+  }, [isAuthenticated]);
 
   // Methods
   const handleChange = (e) =>
