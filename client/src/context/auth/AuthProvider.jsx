@@ -5,6 +5,7 @@ import {
   CLEAR_ERRORS,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
+  LOGOUT,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
 } from "../actiontypes";
@@ -56,7 +57,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   //Log out User
-  const logoutUser = () => {
+  const logout = () => {
     dispatch({ type: LOGOUT });
   };
 
@@ -87,7 +88,7 @@ export const AuthProvider = ({ children }) => {
     error,
     registerUser,
     loginUser,
-    logoutUser,
+    logout,
     clearErrors,
     loadUser,
   };

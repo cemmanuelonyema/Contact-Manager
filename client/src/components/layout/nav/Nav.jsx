@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { SearchForm } from "../../contacts/contactform/ContactForm";
 import { FiUserPlus } from "react-icons/fi";
 
 import "./nav.scss";
 import { ContactContext } from "../../../context/contacts/ContactProvider";
+import { AuthContext } from "../../../context/auth/AuthProvider";
 
 export const NavHeader = () => {
   return (
@@ -30,6 +31,13 @@ export const NavBar = () => {
   const { toggleModal } = useContext(ContactContext);
   const [isActive, setIsActive] = useState(false);
   const handleToggle = () => setIsActive(!isActive);
+  const { logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    handleToggle();
+    logout();
+  };
+
   return (
     <nav className="nav">
       <div className="nav__container">
@@ -54,6 +62,9 @@ export const NavBar = () => {
               Contact Me
             </a>
           </li>
+          <button className="nav__link" onClick={handleLogout}>
+            Log out{" "}
+          </button>
         </ul>
 
         <div className="mobile-right">
